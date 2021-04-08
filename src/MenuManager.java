@@ -25,11 +25,11 @@ public class MenuManager {
 				accountManager.editAccount();
 			}
 			else if (num == 4) {
-				accountManager.viewAccount();
+				accountManager.viewAccounts();
 			}
 			else {
 				continue;
-			}
-		}
-	}
-}	
+			}//if
+		}//while
+	}//if
+}//for
