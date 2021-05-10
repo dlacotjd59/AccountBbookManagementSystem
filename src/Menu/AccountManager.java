@@ -1,11 +1,16 @@
+package Menu;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import Account.Account;
-import Account.PocketMoney;
+import Accounts.Account;
+import Accounts.AccountInput;
+import Accounts.MoneyKind;
+import Accounts.PocketMoney;
+import Accounts.ReturnOnInvestment;
+
 
 public class AccountManager {
-	ArrayList<Account> accounts = new ArrayList<Account>();
+	ArrayList<AccountInput> accounts = new ArrayList<AccountInput>();
 	Account account;
 	Scanner input;
 	AccountManager(Scanner input) {
@@ -14,22 +19,22 @@ public class AccountManager {
 	
 	public void Income() {
 		int kind = 0;
-		Account account;
+		AccountInput accountInput;
 		while (kind != 1 && kind != 2) {
 			System.out.println("(1) for Prat time Job: ");
 			System.out.println("(2) for Pocket Money: ");
 			System.out.println("Select num for Money Kind between (1) and (2)");
 			kind = input.nextInt();
 			if (kind == 1) {
-				account = new Account();
-				account.getUserInput(input);
-				accounts.add(account);
+				accountInput = new ReturnOnInvestment(MoneyKind.ReturnOnInvestment);
+				accountInput.getUserInput(input);
+				accounts.add(accountInput);
 				break;
 			}
 			else if (kind == 2) {
-				account = new PocketMoney();
-				account.getUserInput(input);
-				accounts.add(account);
+				accountInput = new PocketMoney(MoneyKind.PocketMoney);
+				accountInput.getUserInput(input);
+				accounts.add(accountInput);
 				break;
 			}
 			else {
@@ -60,8 +65,8 @@ public class AccountManager {
 		System.out.print("name :");
 		String name = input.next();
 		for (int i = 0; i < accounts.size();) {
-			Account account = accounts.get(i);
-			if (account.getName().equals(name)) {
+			AccountInput accountInput = accounts.get(i);
+			if (accountInput.getName().equals(name)) {
 				System.out.println("The money to be edited is " + name);
 			}//if¹®
 			break;
@@ -76,4 +81,3 @@ public class AccountManager {
 		}
 	}
 }
-
