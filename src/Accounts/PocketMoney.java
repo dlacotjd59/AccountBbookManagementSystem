@@ -1,8 +1,12 @@
-package Account;
+package Accounts;
 
 import java.util.Scanner;
 
-public class PocketMoney extends Account {
+public class PocketMoney extends Account implements AccountInput {
+	
+	public PocketMoney(MoneyKind pocketmoney) {
+		super();
+	}
 
 	public void getUserInput(Scanner input) {
 		System.out.print("money:");
@@ -27,5 +31,7 @@ public class PocketMoney extends Account {
 			}
 		}
 	}
-	
+	public void printInfo() {
+		System.out.println("money : " + money + "   " + "name : " + name);
+	}
 }

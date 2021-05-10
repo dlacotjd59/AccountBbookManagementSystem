@@ -1,3 +1,4 @@
+package Menu;
 import java.util.Scanner;
 
 public class MenuManager {
@@ -13,7 +14,7 @@ public class MenuManager {
 		System.out.println("3. Edit Account");
 		System.out.println("4. View Account");
 		System.out.println("5. Exit");
-		System.out.println("Select one number between 1-6:");
+		System.out.println("Select one number between 1-5:");
 		num = input.nextInt();
 			if (num == 1) {
 				accountManager.Income();

@@ -1,10 +1,8 @@
-package Account;
+package Accounts;
 
-import java.util.Scanner;
-
-public class Account {
+public abstract class Account {
 	
-	protected MoneyKind kind = MoneyKind.PartTimeJob;
+	public MoneyKind kind = MoneyKind.PartTimeJob;
 	String name;
 	int money;
 	public Account() {
@@ -36,17 +34,5 @@ public class Account {
 		this.money = money;
 	}
 	
-	public void printInfo() {
-		System.out.println("money : " + money + "   " + "name : " + name);
-	}
-	public void getUserInput(Scanner input) {
-		System.out.print("money:");
-		int money = input.nextInt();
-		this.setMoney(money);
-		
-		System.out.print("name:");
-		String name = input.next();
-		this.setName(name);
-	}
+	public abstract void printInfo();
 }
-
