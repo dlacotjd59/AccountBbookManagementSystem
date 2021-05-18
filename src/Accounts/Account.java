@@ -1,6 +1,10 @@
 package Accounts;
 
-public abstract class Account {
+import java.util.Scanner;
+
+import exception.NameFormatException;
+
+public abstract class Account implements AccountInput {
 	
 	public MoneyKind kind = MoneyKind.PartTimeJob;
 	String name;
@@ -24,7 +28,10 @@ public abstract class Account {
 	public String getName() {
 		return name;
 	}
-	public void setName(String name) {
+	public void setName(String name) throws NameFormatException {
+		if (!name.contains("!") && !name.equals("")) {
+			throw new NameFormatException();
+		}
 		this.name = name;
 	}
 	public int getMoney() {
@@ -35,4 +42,23 @@ public abstract class Account {
 	}
 	
 	public abstract void printInfo();
+	public void setMoney(Scanner input) {
+		System.out.print("Account Money : ");
+		int money = input.nextInt();
+		this.setMoney(money);
+	}
+	
+	public void setName(Scanner input) {
+		String name = "";
+		while (!name.contains("!")) {
+		System.out.println("Name : ");
+			name = input.next();
+			try {
+				this.setName(name);
+			} 
+			catch (NameFormatException e) {
+				System.out.println("Incorrect Name Format. put the Name that contains !");
+			}
+		}
+	}
 }

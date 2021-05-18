@@ -2,22 +2,35 @@ package Accounts;
 
 import java.util.Scanner;
 
-public class ReturnOnInvestment extends Account implements AccountInput {
+public class ReturnOnInvestment extends Account  {
 	
 	public ReturnOnInvestment(MoneyKind kind) {
 		super();
 	}
 	
 	public void getUserInput(Scanner input) {
-		System.out.print("money:");
-		int money = input.nextInt();
-		this.setMoney(money);
-		
-		System.out.print("name:");
-		String name = input.next();
-		this.setName(name);
+		setMoney(input);
+		setName(input);
 	}
 	public void printInfo() {
 		System.out.println("money : " + money + "   " + "name : " + name);
+	}
+
+	@Override
+	public int setMoney() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public String setName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String setNamewithYN() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
