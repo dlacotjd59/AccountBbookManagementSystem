@@ -1,4 +1,5 @@
 package Menu;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -10,10 +11,15 @@ import Accounts.PocketMoney;
 import Accounts.ReturnOnInvestment;
 
 
-public class AccountManager {
+public class AccountManager implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4266458253947497905L;
+	
 	ArrayList<AccountInput> accounts = new ArrayList<AccountInput>();
 	Account account;
-	Scanner input;
+	transient Scanner input;
 	AccountManager(Scanner input) {
 		this.input = input;
 	}
