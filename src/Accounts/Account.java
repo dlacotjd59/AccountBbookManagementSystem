@@ -1,11 +1,16 @@
 package Accounts;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
 import exception.NameFormatException;
 
-public abstract class Account implements AccountInput {
+public abstract class Account implements AccountInput, Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1375222917595428084L;
 	public MoneyKind kind = MoneyKind.PartTimeJob;
 	String name;
 	int money;
@@ -60,5 +65,9 @@ public abstract class Account implements AccountInput {
 				System.out.println("Incorrect Name Format. put the Name that contains !");
 			}
 		}
+	}
+	public Account get(int index) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

@@ -27,7 +27,7 @@ public class AccountManager implements Serializable {
 	public void Income() {
 		int kind = 0;
 		AccountInput accountInput;
-		while (kind != 1 && kind != 2) {
+		while (kind < 1 || kind > 2) {
 			try {
 				System.out.println("(1) for Prat time Job: ");
 				System.out.println("(2) for Pocket Money: ");
@@ -118,7 +118,13 @@ public class AccountManager implements Serializable {
 		}
 	}
 	
-
+	public int size() {
+		return accounts.size();
+	}
+	
+	public AccountInput get(int index) {
+		return (Account) accounts.get(index);
+	}
 	
 	public void showEditMenu() {
 		System.out.println("** Account Info Edit Menu**");

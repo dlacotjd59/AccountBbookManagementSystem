@@ -8,18 +8,23 @@ import java.io.ObjectOutputStream;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import GUI.WindowFrame;
 import log.EventLogger;
 
 public class MenuManager {
 	static EventLogger logger = new EventLogger("log.txt");
 
 	public static void main(String[] args) {
-	
 		Scanner input = new Scanner(System.in);
 		AccountManager  accountManager = getObject("accountmanager.ser");
 		if (accountManager == null) {
 			 accountManager = new AccountManager(input);
 		}
+		else {
+			accountManager.input = input;
+		}
+		
+		WindowFrame frame = new WindowFrame(accountManager);
 		SelectMenu(input, accountManager);		
 		putObject(accountManager, "accountmanager.ser");
 	}
@@ -73,10 +78,8 @@ public class MenuManager {
 	
 	public static AccountManager getObject(String filename) {
 		AccountManager accountManager = null;
-		
-		FileInputStream file;
 		try {
-			file = new FileInputStream(filename);
+			FileInputStream file = new FileInputStream(filename);
 			ObjectInputStream in = new ObjectInputStream(file);
 			
 			accountManager = (AccountManager)in.readObject();
@@ -111,6 +114,7 @@ public class MenuManager {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		
 		}
 	}
 }

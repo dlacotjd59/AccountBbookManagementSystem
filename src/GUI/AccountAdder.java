@@ -1,14 +1,19 @@
 package GUI;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
-public class AccountAdder extends JFrame {
+public class AccountAdder extends JPanel {
+	
+	WindowFrame frame;
 
-	public AccountAdder() {
+	public AccountAdder(WindowFrame frame) {
+		this.frame = frame;
+		
 		JPanel panel = new JPanel();
 		panel.setLayout(new SpringLayout());
 		
@@ -24,12 +29,14 @@ public class AccountAdder extends JFrame {
 		panel.add(labelMONEY);
 		panel.add(fieldMONEY);
 		
-		SpringUtilities.makeCompactGrid(panel, 2, 2, 6, 6, 6, 6);
+		panel.add(new JButton("save"));
+		panel.add(new JButton("cancel"));
 		
-		this.setSize(300, 300);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		SpringUtilities.makeCompactGrid(panel, 3, 2, 6, 6, 6, 6);
 		
-		this.setContentPane(panel);
+		this.add(panel);
 		this.setVisible(true);
+		
+
 	}
 }
