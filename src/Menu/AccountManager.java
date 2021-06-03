@@ -24,10 +24,24 @@ public class AccountManager implements Serializable {
 		this.input = input;
 	}
 	
+	public void setScanner(Scanner input) {
+		this.input = input;
+	}
+	
+	public void Income(String name, String money) {
+		AccountInput accountInput = new ReturnOnInvestment(MoneyKind.ReturnOnInvestment);
+		accountInput.getUserInput(input);
+		accounts.add(accountInput);
+	}
+	
+	public void Income(AccountInput accountInput) {
+		accounts.add(accountInput);
+	}
+	
 	public void Income() {
 		int kind = 0;
 		AccountInput accountInput;
-		while (kind != 1 && kind != 2) {
+		while (kind < 1 || kind > 2) {
 			try {
 				System.out.println("(1) for Prat time Job: ");
 				System.out.println("(2) for Pocket Money: ");
@@ -118,7 +132,13 @@ public class AccountManager implements Serializable {
 		}
 	}
 	
-
+	public int size() {
+		return accounts.size();
+	}
+	
+	public AccountInput get(int index) {
+		return (Account) accounts.get(index);
+	}
 	
 	public void showEditMenu() {
 		System.out.println("** Account Info Edit Menu**");

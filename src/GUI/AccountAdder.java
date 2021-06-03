@@ -1,35 +1,55 @@
 package GUI;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
-public class AccountAdder extends JFrame {
+import Listener.AccountAdderCancelListener;
+import Listener.AccountAdderListener;
+import Menu.AccountManager;
 
-	public AccountAdder() {
+public class AccountAdder extends JPanel {
+	
+	WindowFrame frame;
+	AccountManager accountManager;
+	
+	public AccountAdder(WindowFrame frame, AccountManager accountManager) {
+		this.frame = frame;
+		this.accountManager = accountManager;
+		
 		JPanel panel = new JPanel();
 		panel.setLayout(new SpringLayout());
-		
+	
 		JLabel labelNAME = new JLabel("Name : ", JLabel.TRAILING);
 		JTextField fieldNAME = new JTextField(10);
 		labelNAME.setLabelFor(fieldNAME);
-		panel.add(labelNAME);
-		panel.add(fieldNAME);
 		
 		JLabel labelMONEY = new JLabel("Money : ", JLabel.TRAILING);
 		JTextField fieldMONEY = new JTextField(10);
 		labelMONEY.setLabelFor(fieldMONEY);
+		
+		panel.add(labelNAME);
+		panel.add(fieldNAME);
 		panel.add(labelMONEY);
 		panel.add(fieldMONEY);
 		
-		SpringUtilities.makeCompactGrid(panel, 2, 2, 6, 6, 6, 6);
+		JButton saveButton = new JButton("save");
+		saveButton.addActionListener(new AccountAdderListener(fieldNAME, fieldMONEY, accountManager));
 		
-		this.setSize(300, 300);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		JButton cancelButton = new JButton("cancel"); 
+		cancelButton.addActionListener(new AccountAdderCancelListener(frame));
 		
-		this.setContentPane(panel);
+		panel.add(saveButton);
+		panel.add(cancelButton);
+		
+		SpringUtilities.makeCompactGrid(panel, 3, 2, 6, 6, 6, 6);
+		
+		this.add(panel);
 		this.setVisible(true);
+		
+
 	}
 }
