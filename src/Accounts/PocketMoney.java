@@ -35,7 +35,7 @@ public class PocketMoney extends Account {
 				}
 			}
 			catch(NameFormatException e) {
-				System.out.println("Incorrect Name Format. put the Name that contains !");
+				System.out.println("Incorrect Name Format. put the Name that contains .");
 				}
 			}
 		}

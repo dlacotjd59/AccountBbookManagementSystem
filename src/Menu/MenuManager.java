@@ -16,7 +16,7 @@ public class MenuManager {
 
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
-		AccountManager  accountManager = getObject("accountmanager.ser");
+		AccountManager accountManager = getObject("accountmanager.ser");
 		if (accountManager == null) {
 			 accountManager = new AccountManager(input);
 		}
@@ -78,7 +78,6 @@ public class MenuManager {
 	
 	public static AccountManager getObject(String filename) {
 		AccountManager accountManager = null;
-		
 		try {
 			FileInputStream file = new FileInputStream(filename);
 			ObjectInputStream in = new ObjectInputStream(file);

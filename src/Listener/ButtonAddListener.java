@@ -22,6 +22,7 @@ public class ButtonAddListener implements ActionListener {
 		frame.getContentPane().add(frame.getAccountadder());
 		frame.revalidate();
 		frame.repaint();
+
 	}
 
 }

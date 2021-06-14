@@ -22,6 +22,7 @@ public class AccountAdderCancelListener implements ActionListener {
 		frame.getContentPane().add(frame.getMenuselection());
 		frame.revalidate();
 		frame.repaint();
+
 	}
 
 }

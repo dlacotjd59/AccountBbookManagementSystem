@@ -28,7 +28,7 @@ public class AccountManager implements Serializable {
 		this.input = input;
 	}
 	
-	public void Income(String name, String money) {
+	public void Income(String name, int money) {
 		AccountInput accountInput = new ReturnOnInvestment(MoneyKind.ReturnOnInvestment);
 		accountInput.getUserInput(input);
 		accounts.add(accountInput);

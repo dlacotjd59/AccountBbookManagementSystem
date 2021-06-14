@@ -11,17 +11,11 @@ public abstract class Account implements AccountInput, Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1375222917595428084L;
-
-	public Account() {
-	}
-	
-	public Account(MoneyKind kind) {
-		this.kind = kind;
-	}
 	public MoneyKind kind = MoneyKind.PartTimeJob;
 	String name;
 	int money;
-
+	public Account() {
+	}
 	public Account(int money) {
 		this.money = money;
 	}
@@ -53,7 +47,6 @@ public abstract class Account implements AccountInput, Serializable {
 	}
 	
 	public abstract void printInfo();
-	
 	public void setMoney(Scanner input) {
 		System.out.print("Account Money : ");
 		int money = input.nextInt();

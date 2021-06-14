@@ -42,11 +42,10 @@ public class AccountViewer extends JPanel {
 		
 		this.add(sp);
 	}
-	
+
 	public AccountViewer(WindowFrame frame,AccountManager accountManager) {
 		this.frame = frame;
 		this.accountManager = accountManager;
-		
 		
 		System.out.println("***" + accountManager.size() + "***");
 		
@@ -67,4 +66,5 @@ public class AccountViewer extends JPanel {
 		
 		this.add(sp);
 	}
+
 }

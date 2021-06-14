@@ -23,7 +23,7 @@ public class ButtonViewListener implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		AccountViewer accountViewer = frame.getAccountviewer();
-		AccountManager  accountManager = getObject("accountmanager.ser");
+		AccountManager accountManager = getObject("accountmanager.ser");
 		accountViewer.setAccountManager(accountManager);
 		
 		frame.getContentPane().removeAll();
@@ -31,10 +31,9 @@ public class ButtonViewListener implements ActionListener {
 		frame.revalidate();
 		frame.repaint();
 	}
-
+	
 	public static AccountManager getObject(String filename) {
 		AccountManager accountManager = null;
-		
 		try {
 			FileInputStream file = new FileInputStream(filename);
 			ObjectInputStream in = new ObjectInputStream(file);

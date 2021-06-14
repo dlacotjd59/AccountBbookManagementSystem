@@ -23,8 +23,8 @@ public class MenuSelection extends JPanel {
 		JPanel panel2 = new JPanel();
 		JLabel label = new JLabel("Menu Selection");
 		
-		JButton button1 = new JButton("Add Account");
-		JButton button2 = new JButton("Delete Account");
+		JButton button1 = new JButton("Incom");
+		JButton button2 = new JButton("Expense");
 		JButton button3 = new JButton("Edit Account");
 		JButton button4 = new JButton("View Account");
 		JButton button5 = new JButton("Exit Program");

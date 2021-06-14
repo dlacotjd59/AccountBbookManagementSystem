@@ -9,6 +9,7 @@ import java.io.ObjectOutputStream;
 
 import javax.swing.JTextField;
 
+import Accounts.Account;
 import Accounts.AccountInput;
 import Accounts.MoneyKind;
 import Accounts.ReturnOnInvestment;
@@ -18,12 +19,9 @@ import exception.NameFormatException;
 public class AccountAdderListener implements ActionListener {
 	JTextField fieldNAME;
 	JTextField fieldMONEY;
-	
 	AccountManager accountManager;
 	
-	public AccountAdderListener(
-			JTextField fieldNAME, 
-			JTextField fieldMONEY, 	AccountManager accountManager) {
+	public AccountAdderListener(JTextField fieldNAME, JTextField fieldMONEY, AccountManager accountManager) {
 		this.fieldNAME = fieldNAME;
 		this.fieldMONEY = fieldMONEY;
 		this.accountManager = accountManager;

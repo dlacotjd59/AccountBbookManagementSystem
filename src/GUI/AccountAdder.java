@@ -15,32 +15,32 @@ public class AccountAdder extends JPanel {
 	
 	WindowFrame frame;
 	AccountManager accountManager;
-	
+
 	public AccountAdder(WindowFrame frame, AccountManager accountManager) {
 		this.frame = frame;
 		this.accountManager = accountManager;
 		
 		JPanel panel = new JPanel();
 		panel.setLayout(new SpringLayout());
-	
+		
 		JLabel labelNAME = new JLabel("Name : ", JLabel.TRAILING);
 		JTextField fieldNAME = new JTextField(10);
 		labelNAME.setLabelFor(fieldNAME);
+		panel.add(labelNAME);
+		panel.add(fieldNAME);
 		
 		JLabel labelMONEY = new JLabel("Money : ", JLabel.TRAILING);
 		JTextField fieldMONEY = new JTextField(10);
 		labelMONEY.setLabelFor(fieldMONEY);
 		
-		panel.add(labelNAME);
-		panel.add(fieldNAME);
-		panel.add(labelMONEY);
-		panel.add(fieldMONEY);
-		
 		JButton saveButton = new JButton("save");
 		saveButton.addActionListener(new AccountAdderListener(fieldNAME, fieldMONEY, accountManager));
 		
-		JButton cancelButton = new JButton("cancel"); 
+		JButton cancelButton = new JButton("cancel");
 		cancelButton.addActionListener(new AccountAdderCancelListener(frame));
+		
+		panel.add(labelMONEY);
+		panel.add(fieldMONEY);
 		
 		panel.add(saveButton);
 		panel.add(cancelButton);
